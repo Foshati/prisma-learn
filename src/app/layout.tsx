@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Lexend } from "next/font/google";
+import { Footer, Navbar } from "@/components/layout";
 
 const lexend = Lexend({
   subsets: ["latin"],
@@ -26,7 +27,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <div className=" flex flex-col  min-h-screen">
+            <Navbar />
+            <main className="flex-1"> {children}</main>
+            <Footer />
+            </div>
+        
           </ThemeProvider>
         </body>
       </html>
